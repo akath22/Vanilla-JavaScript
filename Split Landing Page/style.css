@@ -1,0 +1,165 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    overflow: hidden;
+}
+
+.split.left {
+    position: absolute;
+    background: url('https://image.ibb.co/m56Czw/designer.jpg') center center no-repeat;
+    background-size: cover;
+    height: 100%;
+    width: 50%;
+    left: 0;
+}
+
+.split.left::before{
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 100%;
+    background-color: rgba(223, 39, 39, 0.6);;
+    top: 0;
+    left: 0;
+}
+
+
+.hover-left .split.left{
+    width: 75%;
+}
+
+.hover-left .split.right{
+    left: 75%;
+    width: 25%;
+}
+
+.hover-left .split.right::before{
+    z-index: 2;
+}
+.split.right {
+    position: absolute;
+    background: url('https://image.ibb.co/m3ZbRb/programmer.png') center center no-repeat ;
+    background-size: cover;
+    height: 100%;
+    width: 50%;
+    left: 50%;
+}
+
+.split.right::before{
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);;
+    top: 0;
+    left: 0;
+}
+
+.hover-right .split.left{
+    width: 25%;
+}
+
+.hover-right .split.right{
+    left: 25%;
+    width: 75%;
+}
+
+.hover-right .split.left::before{
+    z-index: 2;
+}
+
+.split.left, .split.left::before,.split.right,.split.right::before,.split.left h1
+,.button{
+    transition-duration: 1s;
+}
+
+
+.split.left h1 {
+    font-size: 60px;
+    font-weight: 700;
+    position: absolute;
+    left: 15%;
+    top: 250px;
+    white-space: nowrap;
+}
+
+.split.right h1 {
+    font-size: 60px;
+    font-weight: 700;
+    position: absolute;
+    left: 22%;
+    top: 250px;
+    white-space: nowrap;
+}
+
+.button {
+    font-size: 18px;
+    text-decoration: none;
+    border: white 3px solid;
+    color: white;
+    position: absolute;
+    left: 33%;
+    top: 400px;
+    text-transform: uppercase;
+    height: 2.5rem;
+    padding-top: 1.3rem;
+    width: 14rem;
+    text-align: center;
+}
+
+.hover-left .split.left h1{
+    font-size: 80px;
+    transform: translateX(10%);
+}
+
+.hover-left .split.left .button{
+    transform: translateX(30%);
+}
+
+.hover-right .split.right h1{
+    font-size: 80px;
+}
+
+@media (max-width:500px){
+    .split.left h1{
+        font-size: 28px;
+        left: 10px;
+        top: 20%;
+    }
+    .hover-left .split.left h1{
+        font-size: 35px;
+        transform: translateX(10%);
+    }
+    .split.right h1{
+        font-size: 28px;
+        left: 40px;
+        top: 20%;
+    }
+    .hover-right .split.right h1{
+        font-size: 35px;
+        transform: translateX(25%);
+    }
+
+    .button{
+        left: 22px;
+        height: 2rem;
+        padding-top: 1rem;
+        width: 12rem;
+    }
+
+    .hover-left .split.left .button{
+        transform: translateX(25%);
+    }
+
+    .hover-right .split.right .button{
+        transform: translateX(37%);
+    }
+}

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.1/css/all.css" integrity="sha384-xxzQGERXS00kBmZW/6qxqJPyxW3UR0BPsL4c8ILaIWXva5kFi7TxkIIaMiKtqV1Q" crossorigin="anonymous">
+    <link href="css/bootstrap.min.css" rel="stylesheet" >
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        ::placeholder {
+            color: rgb(175, 167, 167) !important;
+        }
+        #remove-icon {
+            display: none;
+        }
+
+        .error {
+            width: 100%;
+            background-color: rgb(255, 249, 249);
+        }
+
+        .container.output {
+            padding-left: 0;
+            padding-right: 0;
+        }
+
+        .list-group-item {
+            background-color: rgb(238, 253, 238);
+            border: 0;
+            padding: 0 20px;
+        }
+
+        .items {
+            border: 1px green solid;
+            border-radius: 0 0 4px 4px;
+        }
+        
+        .amate {
+            opacity: 0;
+            animation-name: slow;
+            animation-duration: 1s;
+            animation-fill-mode: forwards;
+            animation-timing-function: ease-in-out;
+        }
+
+        @keyframes slow {
+            from {opacity: 0;} 
+            to {opacity: 1;}
+        }
+    </style>
+    <title>Location Finder</title>
+</head>
+<body class="bg-white">
+    <div class="container bg-dark text-white">
+        <div class="row">
+            <div class="col-md-12 pt-4 pb-4 px-4">
+                <h1 class="brand mt-4">US Location Info</h1>
+                <h5 style="color: rgb(175, 167, 167);">Enter a zipcode to get the location info</h5>
+                <form id="form">
+                    <div class="input-group my-3 ">
+                        <div class="input-group-prepend" >
+                          <span class="input-group-text bg-white" style="border: 0;"><i class="fa fa-map-pin fa-lg" style="color: rgb(211, 207, 207);" id="pin-icon"></i></span>
+                        </div>
+                        <input type="text" class="form-control form-control-lg" placeholder="Enter Zipcode"
+                        style="border: 0; box-shadow: none;" id="input">
+                        <div class="input-group-append" >
+                            <span class="input-group-text bg-white" style="border: 0;" ><i class="fa fa-times fa-lg" id="remove-icon" style="color: rgb(211, 207, 207);"></i></span>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="container output mt-4" id="output">
+    </div>    
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="js/bootstrap.min.js" ></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

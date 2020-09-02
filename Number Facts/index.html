@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <style>
+        #fact {
+            display: none;
+            animation-name: slow;
+            animation-duration: 0.7s;
+        }
+        @keyframes slow {
+            from {opacity: 0;}
+            to {opacity: 1;}
+        }
+    </style>
+    <title>Number Facts</title>
+</head>
+<body class="bg-dark">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 mx-auto">
+                <div class="card bg-primary text-light mt-5 p-4">
+                    <h1>Number Facts</h1>
+                    <p>Enter a number and get a random fact</p>
+                    <form >
+                        <div class="form-group">
+                            <input type="number" class="form-control form-control-lg" placeholder="Enter a number..." id="numberInput">
+                        </div>
+                    </form>
+                    <div id="fact">
+                        <h4 class="my-2 text-warning">Number Fact :</h4>
+                        <p class="my-3" id="factText"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="js/bootstrap.min.js" ></script>
+    <script>
+        let numberInput= document.getElementById('numberInput');
+        let fact =document.getElementById('fact');
+        let factText = document.getElementById('factText');
+
+        numberInput.addEventListener('keydown',()=>{
+            fact.style.display ='none';
+        });
+        numberInput.addEventListener('input',getFact);
+
+        function getFact(){
+            if(this.value===''){
+                fact.style.display='none';
+            }
+            let number=this.value;
+            console.log(number);
+            fetch('http://numbersapi.com/'+number)
+            .then((res)=>res.text())
+            .then((text)=> {
+                if(number !=''){
+                    factText.innerText=text;
+                    fact.style.display='block';
+                }
+            }).catch(err=> console.log(err));
+        }
+
+    </script>
+</body>
+</html>

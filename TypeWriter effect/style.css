@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway:200,100,400');
+
+body{
+    font-family: Raleway,sans-serif;
+    height: 100vh;
+    background: url('https://image.ibb.co/n5A2HU/showcase.jpg') center center no-repeat ;
+    background-size: cover;
+    color: antiquewhite;
+    overflow: hidden;
+}
+
+.container{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 30px;
+}
+
+h1,h2{
+    font-weight: 550;
+}
+
+h1{
+    font-size: 3.5rem;
+}
+
+h2{
+    font-size: 2rem;
+    color: #aaa;
+}
+
+.txt{
+    border-right: solid 2px #aaa;
+}
+
+@media(min-width:1200px){
+    h1{
+        font-size: 3.8rem;;
+    }
+}
+
+@media(max-width:800px){
+    h1{
+        font-size: 2.5rem;
+    }
+
+    .container{
+        padding-left: 1rem;
+    }
+}
+
+@media(max-width:480px){
+    h1{
+        font-size: 1.8rem;
+    }
+
+    h2{
+        font-size: 1.5rem;
+    }
+
+    .container{
+        padding-left: 1rem;
+    }
+}

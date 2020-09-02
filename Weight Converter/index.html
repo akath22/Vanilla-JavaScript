@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <style>
+        body{
+            margin-top: 70px;
+            background: #333;
+            color: white;
+        }
+
+        .container{
+            width: 70%;
+            margin: auto;
+        }
+
+        .col-6{
+            width: 100%;
+            margin: auto;
+        }
+        .one{
+            background-color: #5254ff;
+            padding-top: 8px;
+            padding-left: 8px;
+        }
+
+        .two{
+            background-color: green;
+            padding-top: 8px;
+            padding-left: 8px;
+        }
+
+        .three{
+            background-color: red;
+            padding-top: 8px;
+            padding-left: 8px;
+        }
+
+    </style>
+    <title>Weight Converter</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-6">
+                <h1 class="display-4 text-center mb-3">Weight Converter</h1>
+                <form>
+                    <div class="form-group">
+                        <input type="number"
+                        id="lbsinput"
+                        class="form-control form-control lg"
+                        placeholder="Enter Pounds...">
+                    </div>
+                </form>
+                <div id="output">
+                    <div class="card mb-2 one">
+                        <div class="card-block">
+                          <h4>Grams:</h4>
+                          <div id="gramsOutput"></div>
+                        </div>
+                      </div>
+              
+                      <div class="card mb-2 two">
+                        <div class="card-block">
+                          <h4>Kilograms:</h4>
+                          <div id="kgOutput"></div>
+                        </div>
+                      </div>
+              
+                      <div class="card mb-2 three">
+                        <div class="card-block">
+                          <h4>Ounces:</h4>
+                          <div id="ozOutput"></div>
+                        </div>
+                      </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.getElementById('output').style.visibility='hidden';
+        let input = document.getElementById('lbsinput');
+        input.addEventListener('input',function (){
+            document.getElementById('output').style.visibility='visible';
+            let Pounds= this.value;
+            let gramsOutput=document.getElementById('gramsOutput');
+            let kgOutput=document.getElementById('kgOutput');
+            let ozOutput=document.getElementById('ozOutput');
+
+            gramsOutput.innerHTML=`${Pounds/0.0022046}`;
+            kgOutput.innerHTML=`${Pounds/(0.0022046*100)}`;
+            ozOutput.innerHTML=`${Pounds/16}`;
+            if(this.value ===''){
+                document.getElementById('output').style.visibility='hidden';
+            }   
+        });
+    </script>
+</body>
+</html>
